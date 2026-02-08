@@ -1,106 +1,113 @@
-import inventory_data
-import sales_module
-import reports_module
-
-def add_flow():
-    print("  add item")
-    name = input("item name: ")
-    cp = float(input("cost price: "))
-    sp = float(input("selling price: "))
-    qty = int(input("quantity: "))
-    ok = inventory_data.add_item(name, cp, sp, qty)
-    if ok:
-        print("item added")
-    else:
-        print("item already exists")
-
-def upd_flow():
-    print("  update item")
-    name = input("item name: ")
-    item = inventory_data.get_item(name)
-    if item is None:
-        print("item not found")
-        return
-
-    print("current cp", item["cp"])
-    print("current sp", item["sp"])
-    print("current qty", item["qty"])
-    print("press enter if no change")
-
-    cp_new =  input("new cp: ")
-    sp_new = input("new sp: ")
-    qty_new = input("new qty: ")
-
-    if cp_new == None:
-        cp_val = None
-    else:
-        cp_val = float(cp_new)
-
-    if sp_new == None:
-        sp_val = None
-    else:
-        sp_val = float(sp_new)
-
-    if qty_new == None:
-        qty_val = None
-    else:
-        qty_val = int(qty_new)
-
-    ok = inventory_data.upd_item(name, cp_val, sp_val, qty_val)
-    if ok:
-        print("item updated")
-    else:
-        print("not updated")
-
-def sale_flow():
-    print("\nrecord sale")
-    name = input("item name: ")
-    qty = int(input("quantity sold: "))
-    ok, msg, prof = sales_module.sale_item(name, qty)
-    print(msg)
-
-def rep_menu():
-    while True:
-        print(" reports")
-        print("1-show inventory")
-        print("2-show low stock")
-        print("3-profit report")
-        print("0-back")
-        ch = input("choice: ")
-        if ch == "1":
-            reports_module.show_report()
-        elif ch == "2":
-            reports_module.low_stock()
-        elif ch == "3":
-            reports_module.profit_report()
-        elif ch == "0":
-            break
-        else:
-            print("wrong choice")
-
+ import inventory_file
+import report as rp
+import sales_record as sr
+from datetime import date,datetime,timedelta
+inventory_file.load_inventory()
+sr.load_sales()
 def main_menu():
-    while True:
-        print("\ninventory menu")
-        print("1-add item")
-        print("2-view inventory")
-        print("3-update item")
-        print("4-record sale")
-        print("5-reports")
-        print("0-exit")
-        ch = input("choice: ")
-        if ch == "1":
-            add_flow()
-        elif ch == "2":
-            reports_module.show_report()
-        elif ch == "3":
-            upd_flow()
-        elif ch == "4":
-            sale_flow()
-        elif ch == "5":
-            rep_menu()
-        elif ch == "0":
-            print("bye")
-            break
-        else:
-            print("wrong choice")
+    while True :
+        print("-" * 51)
+        print(f"{"INVENTORY MANAGEMENT SYSTEM":^51}")
+        print("-"*51)
+        print("1-> add item")
+        print("2-> show inventory")
+        print("3-> report a sale")
+        print("4-> show reports")
+        print("5-> advanced options")
+        print("6-> Exit")
+        print("-" * 51)
+        choice=input("enter your choice: ")
+        if choice=="1":
+            add_item()
+        if choice=="2":
+            show_inventory()
+        if choice=="3":
+            report_sale()
+        if choice=="4":
+            show_reports()
+def add_item():
+    print("-" * 51)
+    print(f"{"ADD ITEM":^51}")
+    print("-" * 51)
+    name=input("enter the item name: ")
+    cp = float(input("enter the cost price: "))
+    sp = float(input("enter the selling price: "))
+    quantity=int(input("enter the quantity: "))
+    if inventory_file.add_items(name,cp,sp,quantity):
+         print("Item added to the inventory successfully")
+         inventory_file.save_inventory()
+    else:
+        print("Item already exist")
+def show_inventory():
+    items = inventory_file.storage()
+    if not items:
+        print("No Items in Inventory Yet")
+        return
+    print("="*52)
+    print(f"{"INVENTORY":^51}")
+    print("-" * 51)
+    #print("S.No\t\tItem\t\tCost Price\t\tSelling Price\t\tQuantity")
+    print(f"{'S.No':<8}{'Items':<15}{'CP':>7}{'SP':>7}{'Quantity':>13}")
+    print("-"*51)
+    a = 1
+    for item_name, item_data in items.items():# item name is a key and item data woh dictionary hai us key waale naam ki dictionary ki values ko store krta hai
+        print(f"{str(a):<8}{item_data["name"]:<15}{item_data["cp"]:>7}{item_data["sp"]:>7}{item_data["qty"]:>13}")
+        a += 1
+def report_sale():
+    print("-" * 51)
+    print(f"{'REPORT A SALE':^51}")
+    print("-" * 51)
+    name = input("enter the item name: ")
+    quantity = int(input("enter the quantity sold: "))
+    items = inventory_file.storage()
+    cp = items[name]["cp"]
+    sp = items[name]["sp"]
+    profit = (sp - cp) * quantity
+
+    if rp.sales_repo(name,quantity):
+        sale = {
+            "item": name,
+            "qty": quantity,
+            "profit":profit,
+            "date": date.today().isoformat()#coverts the python format to string format
+
+        }
+        sales=sr.sales()
+        sales.append(sale)
+        sr.save_sales()
+        print("Sales recorded.Good job")
+        inventory_file.save_inventory()
+    else:
+        print("Sales not recorded")
+def show_reports():
+    print("-" * 51)
+    print(f"{'BUSINESS REPORTS':^51}")
+    print("-" * 51)
+    print(f"{'1-> SALES SUMMARY':^51}")
+    print(f"{'2-> INVENTORY INSIGHTS':^51}")
+    print(f"{'3-> DETAILED SALES TABLE':^51}")
+    print("=" * 51)
+    global choice
+    choice=input("enter a choice: ")
+    if choice=="1" or choice=="3":
+        report_type()
+def report_type():
+    print("-" * 51)
+    print(f"{'TYPE OF REPORT':^51}")
+    print("-" * 51)
+    print(f"{'1-> TODAY':^51}")
+    print(f"{'2-> YESTERDAY':^51}")
+    print(f"{'3-> PAST WEEK':^51}")
+    print(f"{'4-> PAST MONTH':^51}")
+    print(f"{'5-> PAST YEAR':^51}")
+    print(f"{'6-> LIFETIME':^51}")
+    print(f"{'7-> ENTER MANUALLY':^51}")
+    print("=" * 51)
+    timespan = input("enter a choice: ")
+    if timespan =="7":
+        strtdate=input("starting date: ")
+        enddate=input("ending date: ")
+
+
+
 main_menu()
