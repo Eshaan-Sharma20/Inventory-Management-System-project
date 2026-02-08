@@ -1,0 +1,140 @@
+[
+    {
+        "item": "rice",
+        "qty": 50,
+        "profit": 500.0,
+        "date": "2025-12-20"
+    },
+    {
+        "item": "wheat flour",
+        "qty": 30,
+        "profit": 240.0,
+        "date": "2025-12-21"
+    },
+    {
+        "item": "sugar",
+        "qty": 25,
+        "profit": 125.0,
+        "date": "2025-12-21"
+    },
+    {
+        "item": "salt",
+        "qty": 40,
+        "profit": 80.0,
+        "date": "2025-12-22"
+    },
+    {
+        "item": "cooking oil",
+        "qty": 20,
+        "profit": 600.0,
+        "date": "2025-12-22"
+    },
+    {
+        "item": "milk",
+        "qty": 60,
+        "profit": 180.0,
+        "date": "2025-12-23"
+    },
+    {
+        "item": "bread",
+        "qty": 45,
+        "profit": 135.0,
+        "date": "2025-12-23"
+    },
+    {
+        "item": "eggs",
+        "qty": 90,
+        "profit": 270.0,
+        "date": "2025-12-23"
+    },
+    {
+        "item": "butter",
+        "qty": 15,
+        "profit": 225.0,
+        "date": "2025-12-24"
+    },
+    {
+        "item": "cheese",
+        "qty": 18,
+        "profit": 360.0,
+        "date": "2025-12-24"
+    },
+    {
+        "item": "tea",
+        "qty": 22,
+        "profit": 330.0,
+        "date": "2025-12-25"
+    },
+    {
+        "item": "coffee",
+        "qty": 14,
+        "profit": 280.0,
+        "date": "2025-12-25"
+    },
+    {
+        "item": "biscuits",
+        "qty": 70,
+        "profit": 210.0,
+        "date": "2025-12-26"
+    },
+    {
+        "item": "noodles",
+        "qty": 55,
+        "profit": 165.0,
+        "date": "2025-12-26"
+    },
+    {
+        "item": "soap",
+        "qty": 48,
+        "profit": 144.0,
+        "date": "2025-12-27"
+    },
+    {
+        "item": "shampoo",
+        "qty": 16,
+        "profit": 320.0,
+        "date": "2025-12-27"
+    },
+    {
+        "item": "toothpaste",
+        "qty": 35,
+        "profit": 175.0,
+        "date": "2025-12-28"
+    },
+    {
+        "item": "detergent",
+        "qty": 28,
+        "profit": 420.0,
+        "date": "2025-12-28"
+    },
+    {
+        "item": "soda",
+        "qty": 180,
+        "profit": 540.0,
+        "date": "2025-12-23"
+    },
+    {
+        "item": "chips",
+        "qty": 65,
+        "profit": 195.0,
+        "date": "2025-12-29"
+    },
+    {
+        "item": "soda",
+        "qty": 10,
+        "profit": 30.0,
+        "date": "2025-12-26"
+    },
+    {
+        "item": "soda",
+        "qty": 100,
+        "profit": 300.0,
+        "date": "2025-12-26"
+    },
+    {
+        "item": "soda",
+        "qty": 20,
+        "profit": 60.0,
+        "date": "2026-01-04"
+    }
+]
