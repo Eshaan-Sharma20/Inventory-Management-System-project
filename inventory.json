@@ -1,0 +1,149 @@
+{
+    "rice": {
+        "name": "rice",
+        "cp": 40.0,
+        "sp": 50.0,
+        "qty": 120,
+        "total_profit": 500.0
+    },
+    "wheat flour": {
+        "name": "wheat flour",
+        "cp": 32.0,
+        "sp": 40.0,
+        "qty": 90,
+        "total_profit": 240.0
+    },
+    "sugar": {
+        "name": "sugar",
+        "cp": 18.0,
+        "sp": 23.0,
+        "qty": 75,
+        "total_profit": 125.0
+    },
+    "salt": {
+        "name": "salt",
+        "cp": 8.0,
+        "sp": 10.0,
+        "qty": 100,
+        "total_profit": 80.0
+    },
+    "cooking oil": {
+        "name": "cooking oil",
+        "cp": 120.0,
+        "sp": 150.0,
+        "qty": 60,
+        "total_profit": 600.0
+    },
+    "milk": {
+        "name": "milk",
+        "cp": 18.0,
+        "sp": 21.0,
+        "qty": 110,
+        "total_profit": 180.0
+    },
+    "bread": {
+        "name": "bread",
+        "cp": 12.0,
+        "sp": 15.0,
+        "qty": 85,
+        "total_profit": 135.0
+    },
+    "eggs": {
+        "name": "eggs",
+        "cp": 3.0,
+        "sp": 6.0,
+        "qty": 200,
+        "total_profit": 270.0
+    },
+    "butter": {
+        "name": "butter",
+        "cp": 90.0,
+        "sp": 105.0,
+        "qty": 40,
+        "total_profit": 225.0
+    },
+    "cheese": {
+        "name": "cheese",
+        "cp": 180.0,
+        "sp": 200.0,
+        "qty": 35,
+        "total_profit": 360.0
+    },
+    "tea": {
+        "name": "tea",
+        "cp": 130.0,
+        "sp": 145.0,
+        "qty": 50,
+        "total_profit": 330.0
+    },
+    "coffee": {
+        "name": "coffee",
+        "cp": 190.0,
+        "sp": 210.0,
+        "qty": 30,
+        "total_profit": 280.0
+    },
+    "biscuits": {
+        "name": "biscuits",
+        "cp": 12.0,
+        "sp": 15.0,
+        "qty": 140,
+        "total_profit": 210.0
+    },
+    "noodles": {
+        "name": "noodles",
+        "cp": 10.0,
+        "sp": 13.0,
+        "qty": 120,
+        "total_profit": 165.0
+    },
+    "soap": {
+        "name": "soap",
+        "cp": 18.0,
+        "sp": 21.0,
+        "qty": 90,
+        "total_profit": 144.0
+    },
+    "shampoo": {
+        "name": "shampoo",
+        "cp": 180.0,
+        "sp": 200.0,
+        "qty": 45,
+        "total_profit": 320.0
+    },
+    "toothpaste": {
+        "name": "toothpaste",
+        "cp": 45.0,
+        "sp": 50.0,
+        "qty": 70,
+        "total_profit": 175.0
+    },
+    "detergent": {
+        "name": "detergent",
+        "cp": 140.0,
+        "sp": 155.0,
+        "qty": 55,
+        "total_profit": 420.0
+    },
+    "soda": {
+        "name": "soda",
+        "cp": 12.0,
+        "sp": 15.0,
+        "qty": 80,
+        "total_profit": 930.0
+    },
+    "chips": {
+        "name": "chips",
+        "cp": 20.0,
+        "sp": 23.0,
+        "qty": 95,
+        "total_profit": 195.0
+    },
+    "rubber": {
+        "name": "rubber",
+        "cp": 12.0,
+        "sp": 25.0,
+        "qty": 1000,
+        "total_profit": 0.0
+    }
+}
